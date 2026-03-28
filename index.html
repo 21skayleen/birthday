@@ -8,11 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;800&display=swap" rel="stylesheet">
 
     <style>
-        /* --- ALL ORIGINAL CODE (1) STYLES PRESERVED --- */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
+            /* Gradient background with fixed attachment for mobile */
             background: radial-gradient(circle at top, #ff9a9e 0%, #ff758c 50%, #ff7eb3 100%);
+            background-attachment: fixed;
+            background-size: cover;
             color: white;
             text-align: center;
             overflow-x: hidden;
@@ -76,6 +78,7 @@
             margin: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: 0.3s;
+            -webkit-tap-highlight-color: transparent;
         }
 
         button:hover {
@@ -100,22 +103,17 @@
             user-select: none;
         }
 
-        .static-balloon:hover {
-            transform: scale(1.2);
-        }
-
         .pop-balloon {
             animation: popOut 0.4s ease-out forwards;
         }
 
         @keyframes popOut {
             0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.8); opacity: 0.8; }
             100% { transform: scale(2.5); opacity: 0; }
         }
 
         #countDisplay {
-            font-size: 180px;
+            font-size: 150px;
             font-weight: 800;
             margin: 40px 0;
             display: block;
@@ -140,8 +138,8 @@
         }
 
         @keyframes floatUp {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-110vh); opacity: 0; }
         }
 
         .button-grid {
@@ -154,16 +152,15 @@
 
         .mini-btn {
             font-size: 28px;
-            padding: 0;
             width: 60px;
             height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             color: white;
             border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         #quoteDisplay {
@@ -175,59 +172,12 @@
             background: rgba(255, 255, 255, 0.15);
             border-radius: 15px;
             max-width: 80%;
-            transition: opacity 0.3s;
         }
 
         #giftText {
             line-height: 1.6;
             font-size: 1.1rem;
             white-space: pre-wrap;
-        }
-
-        /* --- CODE (2) ESSENTIAL STYLES ADDED AT END --- */
-        .cake-container {
-            position: relative;
-            width: 250px;
-            height: 200px;
-            margin: 40px auto;
-        }
-        .cake {
-            position: absolute;
-            bottom: 0; left: 50%;
-            transform: translateX(-50%);
-            width: 180px; height: 100px;
-            background: #ff85a2;
-            border-radius: 10px 10px 0 0;
-        }
-        .candle {
-            width: 8px; height: 30px;
-            background: #ff9933;
-            display: inline-block;
-            margin: 0 8px;
-            position: relative;
-            cursor: pointer;
-        }
-        .flame {
-            position: absolute;
-            top: -15px; left: 50%;
-            transform: translateX(-50%);
-            width: 10px; height: 15px;
-            background: gold;
-            border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 0 10px orange;
-        }
-        .blown .flame { display: none; }
-        .wish-popup {
-            display: none;
-            position: fixed;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            color: #ff3366;
-            z-index: 200;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
         }
     </style>
 </head>
@@ -258,27 +208,21 @@
     <h2>Distance Makes Us Stronger 🌍</h2>
     <p>Distance is not here to break us…<br><br>
        It proves how real our love is.<br><br>
-       Every day apart is one step closer to being together.<br><br>
        And I promise you… we will make it ❤️</p>
-    <button onclick="prevPage()">⬅ Back</button>
     <button onclick="nextPage(4)">Next ➡</button>
 </div>
 
 <div class="page" id="page4">
     <h2>My Favorite Person 💖</h2>
     <img src="image.jpg" class="big-img" alt="Julia">
-    <p>The girl I’m fighting distance for ❤️<br><br>
-       You are my happiness, my peace, and my love.</p>
-    <button onclick="prevPage()">⬅ Back</button>
+    <p>The girl I’m fighting distance for ❤️</p>
     <button onclick="nextPage(5)">Next ➡</button>
 </div>
 
 <div class="page" id="page5">
     <h2>Final Message 🎁</h2>
     <p>Happy Birthday, my strawberry 🍓<br><br>
-       I have something special for you…<br><br>
        Are you ready? ❤️</p>
-    <button onclick="prevPage()">⬅ Back</button><br>
     <button onclick="startGift()">Open Your Gift 🎁</button>
 </div>
 
@@ -295,49 +239,25 @@
         </div>
         <div id="quoteDisplay">Click a button above!</div>
     </div>
-    <img src="./image.jpg" class="big-img">
+    <img src="image.jpg" class="big-img">
     <h2>I love you, my strawberry 🍓</h2>
-    
-    <button onclick="nextPage('cakeSurprise')" style="background: #ff3366; color: white; margin-top: 30px;">One More Surprise... 🎂</button>
-</div>
-
-<div class="page" id="cakeSurprise">
-    <h2>Make a Wish! ✨</h2>
-    <div class="cake-container">
-        <div class="cake">
-            <div style="position: absolute; top: -40px; width: 100%; text-align: center;">
-                <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
-                <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
-                <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
-            </div>
-        </div>
-    </div>
-    <p>Tap each candle to blow it out, Julie! ❤️</p>
-</div>
-
-<div class="wish-popup" id="wishPopup">
-    <h2>✨ Happy Birthday! ✨</h2>
-    <p>Pomyśl życzenie, moja Julie, niech wszystkie Twoje marzenia się spełnią! 🎂✨</p>
-    <button onclick="document.getElementById('wishPopup').style.display='none'">Thank you! ❤️</button>
 </div>
 
 <audio id="bgMusic" loop preload="auto">
-    <source src="./hotel.mp3" type="audio/mp3">
+    <source src="hotel.mp3" type="audio/mp3">
 </audio>
 
 <script>
-/* --- ALL ORIGINAL CODE (1) SCRIPTS --- */
 let currentPage = 1;
 const music = document.getElementById("bgMusic");
 
-// Original logic for strawberries/hearts
+// Background decorations
 for (let i = 0; i < 15; i++) {
     let decoration = document.createElement("div");
     decoration.className = "bg-strawberry";
     decoration.innerHTML = i % 2 === 0 ? "🍓" : "💖";
     decoration.style.left = Math.random() * 100 + "vw";
     decoration.style.animationDuration = (Math.random() * 5 + 5) + "s";
-    decoration.style.animationDelay = (Math.random() * 5) + "s";
     document.body.appendChild(decoration);
 }
 
@@ -366,7 +286,6 @@ function spawnItems(emoji) {
         item.classList.add("floating");
         item.innerHTML = emoji;
         item.style.left = Math.random() * 100 + "vw";
-        item.style.fontSize = (25 + Math.random() * 30) + "px";
         document.body.appendChild(item);
         setTimeout(() => item.remove(), 4000);
     }, 300);
@@ -379,7 +298,7 @@ function spawnBalloons(count) {
         balloon.innerHTML = "🎈";
         balloon.style.left = (Math.random() * 80 + 10) + "vw";
         balloon.style.top = (Math.random() * 80 + 10) + "vh";
-        balloon.style.fontSize = (40 + Math.random() * 20) + "px";
+        balloon.style.fontSize = "40px";
         balloon.onclick = function() {
             this.classList.add("pop-balloon");
             setTimeout(() => this.remove(), 400);
@@ -390,22 +309,9 @@ function spawnBalloons(count) {
 
 function nextPage(pageNumber) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    if (pageNumber === 'cakeSurprise') {
-        document.getElementById('cakeSurprise').classList.add('active');
-    } else {
-        currentPage = pageNumber;
-        document.getElementById("page" + pageNumber).classList.add("active");
-    }
+    currentPage = pageNumber;
+    document.getElementById("page" + pageNumber).classList.add("active");
     window.scrollTo(0,0);
-}
-
-function prevPage() {
-    if (currentPage > 2) {
-        document.getElementById("page" + currentPage).classList.remove("active");
-        currentPage--;
-        document.getElementById("page" + currentPage).classList.add("active");
-        window.scrollTo(0,0);
-    }
 }
 
 function startGift() {
@@ -414,8 +320,6 @@ function startGift() {
     music.volume = 0.5;
     music.play();
     typeWriterEffect();
-    spawnItems("❤️");
-    spawnBalloons(4);
 }
 
 function typeWriterEffect() {
@@ -423,37 +327,25 @@ function typeWriterEffect() {
     let i = 0;
     const dest = document.getElementById("giftText");
     dest.innerHTML = "";
-    function typeWriter() {
+    function type() {
         if (i < text.length) {
             dest.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
             i++;
-            setTimeout(typeWriter, 50);
+            setTimeout(type, 50);
         }
     }
-    typeWriter();
+    type();
 }
 
 function showQuote(type) {
     const display = document.getElementById("quoteDisplay");
     const messages = {
         '🍓': "You're the sweetest girl in the whole world.",
-        '🌟': "You make my dark days bright, even from miles away, i love u julie.",
+        '🌟': "You make my dark days bright, I love my Julie.",
         '☁️': "I fall in love with you more every single morning.",
         '💌': "Distance is just a test to see how far love can travel."
     };
     display.innerText = messages[type];
-}
-
-/* --- LOGIC FOR THE CAKE (CODE 2) --- */
-let candlesOut = 0;
-function blow(el) {
-    if(!el.classList.contains('blown')) {
-        el.classList.add('blown');
-        candlesOut++;
-        if(candlesOut === 3) {
-            document.getElementById('wishPopup').style.display = 'block';
-        }
-    }
 }
 </script>
 </body>
