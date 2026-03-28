@@ -8,13 +8,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;800&display=swap" rel="stylesheet">
 
     <style>
+        /* Repair: Ensuring the background stays pink on mobile */
+        html {
+            height: 100%;
+            background-color: #ff758c; /* Fallback to prevent white flashes */
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             /* Gradient background with fixed attachment for mobile */
+            background: #ff758c; /* Fallback */
             background: radial-gradient(circle at top, #ff9a9e 0%, #ff758c 50%, #ff7eb3 100%);
             background-attachment: fixed;
             background-size: cover;
+            background-repeat: no-repeat;
             color: white;
             text-align: center;
             overflow-x: hidden;
@@ -30,6 +38,7 @@
             background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
             opacity: 0.1;
             z-index: -2;
+            pointer-events: none;
         }
 
         .bg-strawberry {
