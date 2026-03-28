@@ -1,72 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>For My Strawberry 🍓</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Strawberry 🍓</title>
+    <link rel="icon" href="https://fav.farm/🍓" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    color: white;
-    text-align: center;
-    overflow-x: hidden;
-}
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
 
-.page {
-    display: none;
-    padding: 50px;
-}
+        h1, h2, h3 {
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
 
-.active {
-    display: block;
-}
+        .page {
+            display: none;
+            padding: 50px 20px;
+            animation: fadeIn 0.8s ease-in;
+        }
 
-button {
-    padding: 12px 20px;
-    border: none;
-    border-radius: 25px;
-    background: white;
-    color: #ff4f81;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 10px;
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-.big-img {
-    width: 450px;
-    max-width: 90%;
-    border-radius: 20px;
-    margin-top: 20px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.5);
-}
+        .active {
+            display: block;
+        }
 
-/* HEARTS */
-.heart {
-    position: fixed;
-    bottom: 0;
-    color: red;
-    animation: floatUp 4s linear infinite;
-}
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: white;
+            color: #ff4f81;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
 
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity: 1; }
-    100% { transform: translateY(-800px); opacity: 0; }
-}
-</style>
+        button:hover {
+            transform: scale(1.05);
+            background: #fff0f3;
+        }
+
+        .big-img {
+            width: 450px;
+            max-width: 90%;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 5px solid white;
+        }
+
+        /* HEARTS */
+        .heart {
+            position: fixed;
+            bottom: -50px;
+            color: white;
+            opacity: 0.8;
+            animation: floatUp 4s linear forwards;
+            z-index: -1;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* INTERACTIVE MINI BUTTONS */
+        .button-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        .mini-btn {
+            font-size: 28px;
+            padding: 0;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: 2px solid white;
+        }
+
+        #quoteDisplay {
+            margin: 20px auto;
+            padding: 20px;
+            min-height: 30px;
+            font-style: italic;
+            font-size: 1.2rem;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            max-width: 80%;
+            transition: opacity 0.3s;
+        }
+
+        #giftText {
+            line-height: 1.6;
+            font-size: 1.1rem;
+            white-space: pre-wrap;
+        }
+    </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
 <div class="page active" id="page1">
     <h1>Happy Birthday Julia ❤️</h1>
     <p>To my strawberry 🍓</p>
     <button onclick="nextPage(2)">Start</button>
 </div>
 
-<!-- PAGE 2 -->
 <div class="page" id="page2">
     <h2>Our Story 💕</h2>
     <p>
@@ -78,7 +143,6 @@ button {
     <button onclick="nextPage(3)">Next ➡</button>
 </div>
 
-<!-- PAGE 3 -->
 <div class="page" id="page3">
     <h2>Distance Makes Us Stronger 🌍</h2>
     <p>
@@ -91,10 +155,9 @@ button {
     <button onclick="nextPage(4)">Next ➡</button>
 </div>
 
-<!-- PAGE 4 -->
 <div class="page" id="page4">
     <h2>My Favorite Person 💖</h2>
-    <img src="image.jpg" class="big-img">
+    <img src="image.jpg" class="big-img" alt="Julia">
     <p>
         The girl I’m fighting distance for ❤️<br><br>
         You are my happiness, my peace, and my love.
@@ -103,7 +166,6 @@ button {
     <button onclick="nextPage(5)">Next ➡</button>
 </div>
 
-<!-- PAGE 5 -->
 <div class="page" id="page5">
     <h2>Final Message 🎁</h2>
     <p>
@@ -115,33 +177,42 @@ button {
     <button onclick="startGift()">Open Your Gift 🎁</button>
 </div>
 
-<!-- GIFT PAGE -->
 <div class="page" id="giftPage">
     <h1>For You, Julia ❤️</h1>
-    <p id="giftText"></p>
+    
+    <div id="giftText"></div>
+
+    <div class="love-jar">
+        <h3>A little jar of reasons why I love you...</h3>
+        <div class="button-grid">
+            <button class="mini-btn" onclick="showQuote('🍓')">🍓</button>
+            <button class="mini-btn" onclick="showQuote('🌟')">🌟</button>
+            <button class="mini-btn" onclick="showQuote('☁️')">☁️</button>
+            <button class="mini-btn" onclick="showQuote('💌')">💌</button>
+        </div>
+        <div id="quoteDisplay">Click a button above!</div>
+    </div>
+
     <img src="./image.jpg" class="big-img">
     <h2>I love you, my strawberry 🍓</h2>
 </div>
 
-<!-- MUSIC -->
 <audio id="bgMusic" loop preload="auto">
     <source src="./hotel.mp3" type="audio/mp3">
 </audio>
+
 <script>
 let currentPage = 1;
 let musicUnlocked = false;
-
 const music = document.getElementById("bgMusic");
 
 // 🔓 Unlock audio on first user interaction
 document.addEventListener("click", () => {
     if (!musicUnlocked) {
-        music.volume = 0;
         music.play().then(() => {
             music.pause();
             music.currentTime = 0;
             musicUnlocked = true;
-            console.log("Audio unlocked 🔓");
         }).catch(err => console.log("Unlock failed:", err));
     }
 }, { once: true });
@@ -150,6 +221,7 @@ function nextPage(pageNumber) {
     document.getElementById("page" + currentPage).classList.remove("active");
     currentPage = pageNumber;
     document.getElementById("page" + currentPage).classList.add("active");
+    window.scrollTo(0,0);
 }
 
 function prevPage() {
@@ -157,14 +229,13 @@ function prevPage() {
         document.getElementById("page" + currentPage).classList.remove("active");
         currentPage--;
         document.getElementById("page" + currentPage).classList.add("active");
+        window.scrollTo(0,0);
     }
 }
 
 function startGift() {
     document.getElementById("page5").classList.remove("active");
     document.getElementById("giftPage").classList.add("active");
-
-    console.log("Attempting to play music...");
 
     // 🎵 Play music safely
     music.volume = 0;
@@ -176,44 +247,44 @@ function startGift() {
                 clearInterval(fade);
             }
         }, 200);
-    }).catch(() => {
-        console.log("Still blocked, showing button...");
-        showManualButton();
-    });
+    }).catch(() => showManualButton());
 
     typeWriterEffect();
     startHearts();
-}
-
-function showManualButton() {
-    if (!document.getElementById("manualPlayBtn")) {
-        let btn = document.createElement("button");
-        btn.id = "manualPlayBtn";
-        btn.innerHTML = "Play Music 🎵";
-        btn.onclick = () => {
-            music.play();
-            btn.remove();
-        };
-        document.getElementById("giftPage").appendChild(btn);
-    }
 }
 
 // ✍️ Typewriter
 function typeWriterEffect() {
     let text = "Even with all this distance... you are still the closest person to my heart.\n\nEvery moment with you means everything to me.\n\nAnd one day... we won't need screens anymore ❤️";
     let i = 0;
-    document.getElementById("giftText").innerHTML = "";
+    const dest = document.getElementById("giftText");
+    dest.innerHTML = "";
 
     function typeWriter() {
         if (i < text.length) {
-            document.getElementById("giftText").innerHTML += 
-                text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
+            dest.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
             i++;
             setTimeout(typeWriter, 50);
         }
     }
-
     typeWriter();
+}
+
+// 🍓 Interactive Quotes
+function showQuote(type) {
+    const display = document.getElementById("quoteDisplay");
+    const messages = {
+        '🍓': "You're the sweetest girl in the whole world.",
+        '🌟': "You make my dark days bright, even from miles away.",
+        '☁️': "I fall in love with you more every single morning.",
+        '💌': "Distance is just a test to see how far love can travel."
+    };
+    
+    display.style.opacity = 0;
+    setTimeout(() => {
+        display.innerText = messages[type];
+        display.style.opacity = 1;
+    }, 150);
 }
 
 // ❤️ Hearts
@@ -227,7 +298,20 @@ function startHearts() {
         document.body.appendChild(heart);
 
         setTimeout(() => heart.remove(), 4000);
-    }, 200);
+    }, 300);
+}
+
+function showManualButton() {
+    if (!document.getElementById("manualPlayBtn")) {
+        let btn = document.createElement("button");
+        btn.id = "manualPlayBtn";
+        btn.innerHTML = "Play Music 🎵";
+        btn.onclick = () => {
+            music.play();
+            btn.remove();
+        };
+        document.getElementById("giftPage").appendChild(btn);
+    }
 }
 </script>
 </body>
