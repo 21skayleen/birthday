@@ -8,10 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;800&display=swap" rel="stylesheet">
 
     <style>
+        /* --- ALL ORIGINAL CODE (1) STYLES PRESERVED --- */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            /* Enhanced gradient background */
             background: radial-gradient(circle at top, #ff9a9e 0%, #ff758c 50%, #ff7eb3 100%);
             color: white;
             text-align: center;
@@ -20,19 +20,16 @@
             position: relative;
         }
 
-        /* --- BACKGROUND DECORATION --- */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            /* Semi-transparent pattern overlay */
             background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
             opacity: 0.1;
             z-index: -2;
         }
 
-        /* Animated background elements */
         .bg-strawberry {
             position: fixed;
             top: -10%;
@@ -95,7 +92,6 @@
             border: 5px solid white;
         }
 
-        /* --- BALLOON STYLES --- */
         .static-balloon {
             position: fixed;
             cursor: pointer;
@@ -118,13 +114,12 @@
             100% { transform: scale(2.5); opacity: 0; }
         }
 
-        /* --- COUNTDOWN STYLES --- */
         #countDisplay {
             font-size: 180px;
             font-weight: 800;
             margin: 40px 0;
             display: block;
-            color: white; /* Stays white as requested */
+            color: white;
         }
 
         .pop {
@@ -137,7 +132,6 @@
             100% { transform: scale(1); opacity: 0; }
         }
 
-        /* --- FLOATING ELEMENTS --- */
         .floating {
             position: fixed;
             bottom: -50px;
@@ -150,7 +144,6 @@
             100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
         }
 
-        /* EXISTING STYLES */
         .button-grid {
             display: flex;
             justify-content: center;
@@ -190,23 +183,56 @@
             font-size: 1.1rem;
             white-space: pre-wrap;
         }
+
+        /* --- CODE (2) ESSENTIAL STYLES ADDED AT END --- */
+        .cake-container {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            margin: 40px auto;
+        }
+        .cake {
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 180px; height: 100px;
+            background: #ff85a2;
+            border-radius: 10px 10px 0 0;
+        }
+        .candle {
+            width: 8px; height: 30px;
+            background: #ff9933;
+            display: inline-block;
+            margin: 0 8px;
+            position: relative;
+            cursor: pointer;
+        }
+        .flame {
+            position: absolute;
+            top: -15px; left: 50%;
+            transform: translateX(-50%);
+            width: 10px; height: 15px;
+            background: gold;
+            border-radius: 50% 50% 20% 20%;
+            box-shadow: 0 0 10px orange;
+        }
+        .blown .flame { display: none; }
+        .wish-popup {
+            display: none;
+            position: fixed;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            color: #ff3366;
+            z-index: 200;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 
 <body>
-
-<script>
-    // Create subtle background strawberries
-    for (let i = 0; i < 15; i++) {
-        let decoration = document.createElement("div");
-        decoration.className = "bg-strawberry";
-        decoration.innerHTML = i % 2 === 0 ? "🍓" : "💖";
-        decoration.style.left = Math.random() * 100 + "vw";
-        decoration.style.animationDuration = (Math.random() * 5 + 5) + "s";
-        decoration.style.animationDelay = (Math.random() * 5) + "s";
-        document.body.appendChild(decoration);
-    }
-</script>
 
 <div class="page active" id="page1">
     <h1>Happy Birthday Julia ❤️</h1>
@@ -222,22 +248,18 @@
 
 <div class="page" id="page2">
     <h2>Our Story 💕</h2>
-    <p>
-        From the moment you came into my life, everything changed.<br><br>
-        Even with the distance between us, you became my closest person.<br><br>
-        Every message, every call, every moment with you means everything to me.
-    </p>
+    <p>From the moment you came into my life, everything changed.<br><br>
+       Even with the distance between us, you became my closest person.<br><br>
+       Every message, every call, every moment with you means everything to me.</p>
     <button onclick="nextPage(3)">Next ➡</button>
 </div>
 
 <div class="page" id="page3">
     <h2>Distance Makes Us Stronger 🌍</h2>
-    <p>
-        Distance is not here to break us…<br><br>
-        It proves how real our love is.<br><br>
-        Every day apart is one step closer to being together.<br><br>
-        And I promise you… we will make it ❤️
-    </p>
+    <p>Distance is not here to break us…<br><br>
+       It proves how real our love is.<br><br>
+       Every day apart is one step closer to being together.<br><br>
+       And I promise you… we will make it ❤️</p>
     <button onclick="prevPage()">⬅ Back</button>
     <button onclick="nextPage(4)">Next ➡</button>
 </div>
@@ -245,30 +267,24 @@
 <div class="page" id="page4">
     <h2>My Favorite Person 💖</h2>
     <img src="image.jpg" class="big-img" alt="Julia">
-    <p>
-        The girl I’m fighting distance for ❤️<br><br>
-        You are my happiness, my peace, and my love.
-    </p>
+    <p>The girl I’m fighting distance for ❤️<br><br>
+       You are my happiness, my peace, and my love.</p>
     <button onclick="prevPage()">⬅ Back</button>
     <button onclick="nextPage(5)">Next ➡</button>
 </div>
 
 <div class="page" id="page5">
     <h2>Final Message 🎁</h2>
-    <p>
-        Happy Birthday, my strawberry 🍓<br><br>
-        I have something special for you…<br><br>
-        Are you ready? ❤️
-    </p>
+    <p>Happy Birthday, my strawberry 🍓<br><br>
+       I have something special for you…<br><br>
+       Are you ready? ❤️</p>
     <button onclick="prevPage()">⬅ Back</button><br>
     <button onclick="startGift()">Open Your Gift 🎁</button>
 </div>
 
 <div class="page" id="giftPage">
     <h1>For You, Julia ❤️</h1>
-    
     <div id="giftText"></div>
-
     <div class="love-jar">
         <h3>A little jar of reasons why I love you...</h3>
         <div class="button-grid">
@@ -279,9 +295,30 @@
         </div>
         <div id="quoteDisplay">Click a button above!</div>
     </div>
-
     <img src="./image.jpg" class="big-img">
     <h2>I love you, my strawberry 🍓</h2>
+    
+    <button onclick="nextPage('cakeSurprise')" style="background: #ff3366; color: white; margin-top: 30px;">One More Surprise... 🎂</button>
+</div>
+
+<div class="page" id="cakeSurprise">
+    <h2>Make a Wish! ✨</h2>
+    <div class="cake-container">
+        <div class="cake">
+            <div style="position: absolute; top: -40px; width: 100%; text-align: center;">
+                <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+                <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+                <div class="candle" onclick="blow(this)"><div class="flame"></div></div>
+            </div>
+        </div>
+    </div>
+    <p>Tap each candle to blow it out, Julie! ❤️</p>
+</div>
+
+<div class="wish-popup" id="wishPopup">
+    <h2>✨ Happy Birthday! ✨</h2>
+    <p>Pomyśl życzenie, moja Julie, niech wszystkie Twoje marzenia się spełnią! 🎂✨</p>
+    <button onclick="document.getElementById('wishPopup').style.display='none'">Thank you! ❤️</button>
 </div>
 
 <audio id="bgMusic" loop preload="auto">
@@ -289,35 +326,36 @@
 </audio>
 
 <script>
+/* --- ALL ORIGINAL CODE (1) SCRIPTS --- */
 let currentPage = 1;
-let musicUnlocked = false;
 const music = document.getElementById("bgMusic");
 
-// Counter Logic
+// Original logic for strawberries/hearts
+for (let i = 0; i < 15; i++) {
+    let decoration = document.createElement("div");
+    decoration.className = "bg-strawberry";
+    decoration.innerHTML = i % 2 === 0 ? "🍓" : "💖";
+    decoration.style.left = Math.random() * 100 + "vw";
+    decoration.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    decoration.style.animationDelay = (Math.random() * 5) + "s";
+    document.body.appendChild(decoration);
+}
+
 function runCounter() {
     document.getElementById("page1").classList.remove("active");
     document.getElementById("counterPage").classList.add("active");
-    
     let count = 5;
     const display = document.getElementById("countDisplay");
-    
     const interval = setInterval(() => {
         count--;
-        if (count >= 0) {
-            display.innerText = count;
-        } else {
+        if (count >= 0) display.innerText = count;
+        else {
             clearInterval(interval);
             display.style.display = "none";
             document.getElementById("bdayMsg").style.display = "block";
-            
-            // Trigger floating cakes and static balloons
             spawnItems("🎂");
-            spawnBalloons(6); // Add 6 clickable static balloons
-            
-            // Show next button after 3 seconds
-            setTimeout(() => {
-                document.getElementById("countNextBtn").style.display = "inline-block";
-            }, 3000);
+            spawnBalloons(6);
+            setTimeout(() => { document.getElementById("countNextBtn").style.display = "inline-block"; }, 3000);
         }
     }, 1000);
 }
@@ -334,7 +372,6 @@ function spawnItems(emoji) {
     }, 300);
 }
 
-// Logic for static clickable balloons
 function spawnBalloons(count) {
     for(let i = 0; i < count; i++) {
         let balloon = document.createElement("div");
@@ -343,21 +380,22 @@ function spawnBalloons(count) {
         balloon.style.left = (Math.random() * 80 + 10) + "vw";
         balloon.style.top = (Math.random() * 80 + 10) + "vh";
         balloon.style.fontSize = (40 + Math.random() * 20) + "px";
-        
         balloon.onclick = function() {
             this.classList.add("pop-balloon");
             setTimeout(() => this.remove(), 400);
         };
-        
         document.body.appendChild(balloon);
     }
 }
 
 function nextPage(pageNumber) {
     document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
-    currentPage = pageNumber;
-    let target = pageNumber === "giftPage" ? "giftPage" : "page" + pageNumber;
-    document.getElementById(target).classList.add("active");
+    if (pageNumber === 'cakeSurprise') {
+        document.getElementById('cakeSurprise').classList.add('active');
+    } else {
+        currentPage = pageNumber;
+        document.getElementById("page" + pageNumber).classList.add("active");
+    }
     window.scrollTo(0,0);
 }
 
@@ -373,13 +411,11 @@ function prevPage() {
 function startGift() {
     document.getElementById("page5").classList.remove("active");
     document.getElementById("giftPage").classList.add("active");
-
     music.volume = 0.5;
     music.play();
-
     typeWriterEffect();
     spawnItems("❤️");
-    spawnBalloons(4); // Add more balloons to the gift page
+    spawnBalloons(4);
 }
 
 function typeWriterEffect() {
@@ -387,7 +423,6 @@ function typeWriterEffect() {
     let i = 0;
     const dest = document.getElementById("giftText");
     dest.innerHTML = "";
-
     function typeWriter() {
         if (i < text.length) {
             dest.innerHTML += text.charAt(i) === "\n" ? "<br>" : text.charAt(i);
@@ -407,6 +442,18 @@ function showQuote(type) {
         '💌': "Distance is just a test to see how far love can travel."
     };
     display.innerText = messages[type];
+}
+
+/* --- LOGIC FOR THE CAKE (CODE 2) --- */
+let candlesOut = 0;
+function blow(el) {
+    if(!el.classList.contains('blown')) {
+        el.classList.add('blown');
+        candlesOut++;
+        if(candlesOut === 3) {
+            document.getElementById('wishPopup').style.display = 'block';
+        }
+    }
 }
 </script>
 </body>
